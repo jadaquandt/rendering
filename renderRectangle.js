@@ -1,8 +1,8 @@
-
+//I did the circles one first so this one was simple
 function renderRectangle(rectangle) {
     return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(rectangle)}</code>
+        <div class="row d-flex justify-content-center mt-5">
+            <div style = "background-color: ${rectangle.color}; height: ${rectangle.height}px; width: ${rectangle.width}px"></div>
         </div>
     `
 }

@@ -1,10 +1,43 @@
+//Mapped through multiple times to get down to the options and then went from there with styling
+//Struggling to find the right logic to display my radio buttons
 
 function renderSurveys(surveys) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(surveys)}</code>
+
+    var surveyTitle = surveys.map (survey => {
+        var buttonText = survey.submitButtonText;
+        var surveyFields = survey.fields.map (response => {
+         return   `
+        <div class="text-left">
+            <h2 style ="font-size: 18px; font-weight: 300">${response.label}</h2>
+            <div class="form-check p-0">
+            <input class="form-check-input" type="${response.type}" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                <label class="form-check-label text-capitalize" for="exampleRadios">
+                ${response.options}
+                </label>
+                <br>
+                <button type="button" class="btn btn-primary mt-5">${buttonText}</button>
         </div>
     `
+        });
+        return `
+        <div class="text-left mt-5">
+            <h1>${survey.title}</h1>
+            <hr>
+        </div>
+        ${surveyFields.join("")}
+    `
+    })
+    return `
+        ${surveyTitle.join("")}
+    `
+   /*
+    var surveyFields = name.title.map (response => {
+        return
+    })
+
+    var surveyResponses = response.fields.map(option => {
+        return `${option.options}`
+    })*/
 }
 
 function surveys() {

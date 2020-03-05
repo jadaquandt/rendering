@@ -1,11 +1,59 @@
+//This problem almost broke my brain. Just kidding, but it was a huge issue for me at first to wrap
+//my head around multiple maps in a row. So I broke them out and ran them that way, it worked and so
+//to make them display correctly on the page, I figured out how to put them one after another
+//that worked and I almost screamed with joy.
 
 function renderAlbums(albums) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(albums)}</code>
+    var artistName = albums[0].artist;
+    var getFirstAlbum = albums[0].albums; 
+
+    var album1 = getFirstAlbum.map(element => {
+        var albumSongs = element.songs.map(song => {
+            return `
+            <hr style="margin:10px; padding:2px">
+            <div style="font-size: 12px;line-height:0" class="d-flex justify-content-between">
+            <p class="my-0"><img height: 30px" src="/playarrow.png"</>${song.title}</p>
+            <p class="my-auto mx-2">${song.length}</p>
+            </div>`
+        })
+        return `
+        <div class="d-flex align-items-end">
+        <img style="margin: 20px 20px 0 0; height: 50px" src="${element.albumCover}"</>
+        <p style="font-size: 20px">${element.title}</p>
         </div>
-    `
+        ${albumSongs.join('')}
+        `
+    })
+    return `<div class="mt-0">
+    <p style="font-size: 40px">${artistName.toUpperCase()}</p><hr> ${album1.join('')}</div>`
 }
+
+/*
+function renderAlbums(albums) {
+  var getCreed = albums.map(element => `
+        <div class="text-center mt-5">
+            <h1 style="text-align: left">${element.artist}</h1>
+        </div>
+    `).join("");
+
+    return getCreed;
+} 
+*/
+/*
+function renderAlbums(albums) {
+ var i = 0;
+
+    const getAlbums = albums.map(album => 
+        {
+            return album.albums[i].title
+        });
+        return `
+                <div class="text-center mt-5">
+                    <h1 style="text-align: left">${getAlbums}</h1>
+                </div>
+                `
+  } ?*/
+
 
 function albums() {
     var content = document.getElementById('content');

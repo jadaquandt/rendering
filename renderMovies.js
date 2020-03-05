@@ -1,10 +1,22 @@
+//This was pretty straightforward after doing the other exercises. 
 
 function renderMovies(movies) {
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(movies)}</code>
+    return movies.map(e =>`
+    <div class="row mt-4">
+        <div class="d-flex col-lg">
+            <img style="height: 300px; width: 220px;" src="${e.poster}" class=" card-img-block">
+            <div class="card mx-3">
+                <div class="bg-light rounded card-body">
+                <h1 style="font-size:16px; font-weight:600" class="card-title mb-0 ">${e.title}</h1>
+                <p style="font-size:10px; font-weight:800"
+                class="card-text">${e.year}</p>
+                <p class="card-text">IMDB: <br> ${e.imdbRating}/10</p>
+                <p class="card-text">Rotten Tomatoes: <br> ${e.rottenTomatoesRating * 100}%</p>
+                </div>
+            </div>
         </div>
-    `
+    </div>
+`).join("");
 }
 
 function movies() {

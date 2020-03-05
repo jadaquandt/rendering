@@ -1,13 +1,19 @@
 
+//I had DIR assistance from Reena starting this one out but finished out the .map at home
+
 function renderCircles(circles) {
     // HINT: You probably need to write a for loop!
     //       Or, if you're feeling fancy, use .map() 
-    return `
-        <div class="text-center mt-5">
-            <code>${JSON.stringify(circles)}</code>
-        </div>
-    `
-}
+    function makeCircle (circles){
+        return `
+            <div class="row d-flex justify-content-center mt-5">
+                <div style="background-color: ${circles.color}; height: ${circles.radius}px; width: ${circles.radius}px; border-radius: ${circles.radius}px;"></div>
+            </div>
+        `
+    }
+
+   return circles.map(makeCircle).join('');
+};
 
 function circles() {
     var content = document.getElementById('content');
