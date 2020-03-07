@@ -3,6 +3,10 @@
 //to make them display correctly on the page, I figured out how to put them one after another
 //that worked and I almost screamed with joy.
 
+//After attending class on Thursday when we went over the surveys together, I realized
+//I could've done it with multiple functions instead but since my code was working, I
+//just decided to go ahead and submit.
+
 function renderAlbums(albums) {
     var artistName = albums[0].artist;
     var getFirstAlbum = albums[0].albums; 
